@@ -8,3 +8,4 @@ const Jogador = conexao.Schema({
 })
 
 export default conexao.model('Jogador',Jogador)
+dd
