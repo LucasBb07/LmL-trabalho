@@ -1,6 +1,10 @@
 
 
 import express from 'express';
+
+import multer from 'multer';
+
+var upload = multer({dest: './public/imagem/'});
 const router = express.Router();
 import {
     home,
@@ -34,7 +38,7 @@ router.get('/', home)
 //time
 //create do modelo time (create)
 router.get('/admin/time/add', abreaddtime)
-router.post('/admin/time/add', addtime)
+router.post('/admin/time/add',upload.single('escudo'), addtime)
 //rotas do modelo time (read)
 router.get('/admin/time/lst', listartime)
 router.post('/admin/time/lst', filtrartime)
