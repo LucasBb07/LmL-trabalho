@@ -3,8 +3,19 @@
 import express from 'express';
 
 import multer from 'multer';
+var storage = multer.diskStorage({
+    filename: function(req, file, cb){
+    let nome = Date.now() + "-" + file.originalname
+    cb(null, nome)
+    },
+    destination: function(req, file, cb){
+    let path = "./public/imagem"
+    cb(null, path)
+    }
+    })
 
-var upload = multer({dest: './public/imagem/'});
+var upload = multer({storage});
+
 const router = express.Router();
 import {
     home,

@@ -5,7 +5,8 @@ const Time = conexao.Schema({
     estadio:{type:String},
     classificacao:{type:Number},
     datafundacao:{type:String},
-    pontos:{type:Number}
+    pontos:{type:Number},
+    escudo:{type:String, required:false}
 });
 
 export default conexao.model('Time',Time)

@@ -9,12 +9,22 @@ export async function abreaddtime(req, res) {
     res.render('admin/time/add')
 }
 export async function addtime(req, res) {
+    var escudoupload=null
+    if(req.file!=null)
+{
+    escudoupload=req.file.filename
+}
+else
+{
+    escudoupload=null
+}
     await Time.create({
         nome:req.body.nome,
         estadio:req.body.estadio,
         classificacao:req.body.classificacao,
         datafundacao:req.body.datafundacao,
-        pontos: 0
+        pontos: 0,
+        escudo:escudoupload
     })
     res.redirect('/admin/time/add')
 }
