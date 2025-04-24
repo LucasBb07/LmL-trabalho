@@ -149,6 +149,7 @@ export async function edtpartida(req, res){
     
     const golsAntigosCasa = partida.golcasa;
     const golsAntigosFora = partida.golfora;
+    lslslsls    
 
     
     if (golsAntigosCasa > golsAntigosFora) {
