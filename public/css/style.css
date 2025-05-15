@@ -245,3 +245,7 @@ select:focus {
 select:hover {
     background-color: #D5DBDB;
 }
+.foto{
+    width:18%;
+    height: 25%;
+}

@@ -1,9 +1,84 @@
 import Time from '../models/time.js';
 import Jogador from '../models/jogador.js';
 import Partida from '../models/partida.js';
-export async function home(req, res) {
-    res.render('admin/index')
-}
+
+export const home = async (req, res) => {
+    const times = await Time.find();
+    const partidas = await Partida.find()
+      .populate("timedecasa")
+      .populate("timedefora");
+  
+    const classificacao = times.map(time => {
+      let pontos = 0,
+          vitorias = 0,
+          empates = 0,
+          derrotas = 0,
+          golsPro = 0,
+          golsContra = 0;
+  
+      partidas.forEach(partida => {
+        const isCasa = partida.timedecasa._id.equals(time._id);
+        const isFora = partida.timedefora._id.equals(time._id);
+  
+        if (isCasa || isFora) {
+          const golsFeitos = isCasa ? partida.golcasa : partida.golfora;
+          const golsSofridos = isCasa ? partida.golfora : partida.golcasa;
+  
+          golsPro += golsFeitos;
+          golsContra += golsSofridos;
+  
+          if (golsFeitos > golsSofridos) {
+            vitorias++;
+            pontos += 3;
+          } else if (golsFeitos === golsSofridos) {
+            empates++;
+            pontos += 1;
+          } else {
+            derrotas++;
+          }
+        }
+      });
+  
+      return {
+        nome: time.nome,
+        pontos,
+        vitorias,
+        empates,
+        derrotas,
+        golsPro,
+        golsContra,
+        saldo: golsPro - golsContra
+      };
+    });
+  
+    classificacao.sort((a, b) => b.pontos - a.pontos || b.saldo - a.saldo);
+  
+    res.render("admin/index", {
+      classificacao,
+      times,
+      partidas
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export async function abreaddtime(req, res) {
     res.render('admin/time/add')
@@ -46,10 +121,27 @@ export async function abreedttime(req, res){
     res.render('admin/time/edt',{Time: resultado})
 }
 export async function edttime(req, res){
-    await Time.findByIdAndUpdate(req.params.id, req.body)
+    var escudoupload=null
+    if(req.file!=null)
+    {
+        escudoupload=req.file.filename
+    }
+    else if(req.body.escudoatual!="")
+    {
+        escudoupload=req.body.escudoatual
+    }
+    else
+    {
+        escudoupload=null
+    }
+    console.log(escudoupload)   
+    await Time.findByIdAndUpdate(req.params.id, {
+    nome:req.body.nome,
+    estadio:req.body.estadio,
+    escudo:escudoupload
+    })
     res.redirect('/admin/time/lst')
 }
-
 
 export async function abreaddjogador(req, res) {
     const resultado = await Time.find({}).catch(function(err){console.log(err)})
@@ -159,7 +251,7 @@ export async function edtpartida(req, res){
     
     const golsAntigosCasa = partida.golcasa;
     const golsAntigosFora = partida.golfora;
-    lslslsls    
+       
 
     
     if (golsAntigosCasa > golsAntigosFora) {
@@ -218,10 +310,10 @@ else if(req.body.golcasa == req.body.golfora){
 */
      
 /*
-          funccion para desfazier cagadióis
+          funccion para desfazier cagadióis 
+
 const partidas = await Partida.find().populate('timedecasa timedefora')
 const ruins = partidas.filter(p => !p.timedecasa || !p.timedefora)
 await Partida.deleteMany({_id: { $in: ruins.map(p => p._id)}})
 
 */
-    

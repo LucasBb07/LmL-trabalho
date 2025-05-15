@@ -57,7 +57,7 @@ router.post('/admin/time/lst', filtrartime)
 router.get('/admin/time/del/:id', deletatime)
 //rota do modelo time (editar)
 router.get('/admin/time/edt/:id', abreedttime)
-router.post('/admin/time/edt/:id', edttime)
+router.post('/admin/time/edt/:id',upload.single('escudo'), edttime)
 
 
 router.get('/admin/jogador/add', abreaddjogador)

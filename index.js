@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import mongoose from 'mongoose'
-const url = "mongodb+srv://aluno:aluno@cluster0.kgvfz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const url = "mongodb+srv://luan:luan@Classi.au203n7.mongodb.net/?retryWrites=true&w=majority&appName=Classi"
 
 
 //converte o camimnho do arquivo atual
@@ -20,6 +20,6 @@ app.use(express.static(__dirname + '/public'));
 import routes from "./routes/route.js"
 app.use(routes)
 
-app.listen(3002)
+app.listen(3003)
 
 
