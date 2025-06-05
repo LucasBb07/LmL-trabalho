@@ -14,7 +14,7 @@ export const home = async (req, res) => {
           empates = 0,
           derrotas = 0,
           golsPro = 0,
-          golsContra = 0;
+          golsContra = 0; 
   
       partidas.forEach(partida => {
         const isCasa = partida.timedecasa._id.equals(time._id);
@@ -59,24 +59,6 @@ export const home = async (req, res) => {
       partidas
     });
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -143,21 +125,34 @@ export async function edttime(req, res){
     res.redirect('/admin/time/lst')
 }
 
+
+
 export async function abreaddjogador(req, res) {
     const resultado = await Time.find({}).catch(function(err){console.log(err)})
     res.render('admin/jogador/add',{Times:resultado})
 }
 export async function addjogador(req, res) {
     var jtime = null;
+    var fotoUpload=null
     if(req.body.time!=null)
     {
         jtime = await Time.findById(req.body.time)
     }
+    
+    if(req.file!=null)
+{
+    fotoUpload=req.file.filename
+}
+else
+{
+    fotoUpload=null
+}
     await Jogador.create({
         nome:req.body.nome,
         camisa:req.body.camisa,
         time:jtime,
-        posicao:req.body.posicao
+        posicao:req.body.posicao,
+        fotoJog:fotoUpload
     })
     res.redirect('/admin/jogador/add')
 }
@@ -180,9 +175,31 @@ export async function abreedtjogador(req, res){
     res.render('admin/jogador/edt',{Jogador: resultado,Times:jtimes})
 }
 export async function edtjogador(req, res){
-    await Jogador.findByIdAndUpdate(req.params.id, req.body)
+    var fotoUpload=null
+    if(req.file!=null)
+    {
+        fotoUpload=req.file.filename
+    }
+    else if(req.body.fotoatual!="")
+    {
+        fotoUpload=req.body.fotoatual
+    }
+    else
+    {
+        fotoUpload=null
+    }
+    console.log(fotoUpload)   
+    await Jogador.findByIdAndUpdate(req.params.id, {
+        nome: req.body.nome,
+        camisa: req.body.camisa,
+        time: req.body.time,
+        posicao: req.body.posicao,
+        fotoJog: fotoUpload
+    });
     res.redirect('/admin/jogador/lst')
 }
+
+
 
 
 export async function abreaddpartida(req, res) {

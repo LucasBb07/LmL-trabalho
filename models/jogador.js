@@ -4,7 +4,8 @@ const Jogador = conexao.Schema({
     nome: {type:String, required:true},
     camisa:{type:String, required:true},
     time:{type:conexao.Types.ObjectId, ref:'Time', required:false},
-    posicao:{type:String, required:true}
+    posicao:{type:String, required:true},
+    fotoJog:{type:String, required:false}
 })
 
 export default conexao.model('Jogador',Jogador)

@@ -1,19 +1,19 @@
 /* Configuração Geral */
 body {
-    background-color: #F4F4F9; /* Cor de fundo suave e clara */
-    color: #2C3E50; /* Cor de texto escura para contraste */
-    font-family: 'Poppins', sans-serif; /* Fonte 'Poppins' */
+    background-color: #F4F4F9;
+    color: #2C3E50;
+    font-family: 'Poppins', sans-serif;
     padding: 0;
     margin: 0;
 }
 
 /* Cabeçalhos */
 h1 {
-    text-align: center; /* Centraliza o título */
-    color: #2980B9; /* Azul claro e profissional */
-    text-transform: uppercase; /* Maiúsculas */
-    letter-spacing: 2px; /* Aumenta o espaçamento */
-    margin-bottom: 20px; /* Espaço abaixo do título */
+    text-align: center;
+    color: #2980B9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 /* Cabeçalho e Menu */
@@ -73,6 +73,46 @@ nav a:hover {
     align-items: center;
 }
 
+/* Topo da Lista */
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #3498DB;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: #2980B9;
+    transform: scale(1.05);
+}
+
 /* Botões */
 button, .add-button a {
     display: inline-flex;
@@ -121,17 +161,28 @@ td {
 }
 
 td a {
+    display: inline-block;
     background-color: #E67E22;
-    padding: 10px 20px;
+    padding: 8px 15px;
+    margin-right: 5px;
     border-radius: 5px;
     color: #FFF;
     text-decoration: none;
     transition: background-color 0.3s, transform 0.2s;
+    font-size: 14px;
 }
 
 td a:hover {
     background-color: #D35400;
     transform: scale(1.05);
+}
+
+td a[href*="/del"] {
+    background-color: #C0392B;
+}
+
+td a[href*="/del"]:hover {
+    background-color: #922B21;
 }
 
 tr:nth-child(even) {
@@ -141,6 +192,15 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #ECF0F1;
     cursor: pointer;
+}
+
+/* Imagem do escudo */
+.foto {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Formulário */
@@ -214,23 +274,21 @@ select {
     color: #34495E;
     transition: background-color 0.3s, border-color 0.3s;
     cursor: pointer;
-    appearance: none; /* Remove a aparência padrão */
+    appearance: none;
 }
 
-/* Estiliza o select quando está focado */
 select:focus {
     background-color: #FFF;
     outline: 1px solid #3498DB;
 }
 
-/* Para adicionar um ícone de dropdown */
 .select-container {
     position: relative;
     width: 100%;
 }
 
 .select-container::after {
-    content: "\f078"; /* Ícone de seta do Font Awesome */
+    content: "\f078";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: absolute;
@@ -241,11 +299,6 @@ select:focus {
     pointer-events: none;
 }
 
-/* Melhorando a experiência ao passar o mouse */
 select:hover {
     background-color: #D5DBDB;
-}
-.foto{
-    width:18%;
-    height: 25%;
 }

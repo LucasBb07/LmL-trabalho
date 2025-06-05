@@ -1,30 +1,53 @@
 <%- include('../cabecalho.ejs') %>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Editar Jogador</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-
-    </head>
-
-    <body>
+<body>
+    <div class="container">
         <h1><i class="fas fa-edit"></i> Edição das partidas</h1>
-        <div class="container">
-            <form action="" method="post">
-                <label for="golcasa"><i class="fas fa-landmark"></i> Gol Casa</label>
-                <input min="0" max ="99" type="number" id="golcasa" name="golcasa" placeholder="Digite o Gol Casa">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="golcasa"><i class="fas fa-futbol"></i> Gol Casa</label>
+                <input
+                    type="number"
+                    id="golcasa"
+                    name="golcasa"
+                    min="0"
+                    max="99"
+                    placeholder="Digite o Gol Casa"
+                    value="<%= partida.golcasa %>"
+                    required
+                >
+            </div>
 
-                <label for="golfora"><i class="fas fa-landmark"></i> Gol Fora</label>
-                <input min="0" max ="99" type="number" id="golfora" name="golfora" placeholder="Digite o Gol Fora">
+            <div class="form-group">
+                <label for="golfora"><i class="fas fa-futbol"></i> Gol Fora</label>
+                <input
+                    type="number"
+                    id="golfora"
+                    name="golfora"
+                    min="0"
+                    max="99"
+                    placeholder="Digite o Gol Fora"
+                    value="<%= partida.golfora %>"
+                    required
+                >
+            </div>
 
-                <label for="datapartida"><i class="fas fa-landmark"></i> Data da Partida</label>
-                <input type="text" id="datapartida" name="datapartida" placeholder="Digite a data de partida">
+            <div class="form-group">
+                <label for="datapartida"><i class="fas fa-calendar-alt"></i> Data da Partida</label>
+                <input
+                    type="date"
+                    id="datapartida"
+                    name="datapartida"
+                    placeholder="Digite a data da partida"
+                    value="<%= partida.datapartida ? partida.datapartida.toISOString().slice(0,10) : '' %>"
+                    required
+                >
+            </div>
 
-                <button type="submit"><i class="fas fa-save"></i> Efetuar Edição</button>
-            </form>
-        </div>
-    </body>
+            <button type="submit" class="btn"><i class="fas fa-save"></i> Efetuar Edição</button>
+        </form>
+    </div>
+</body>
 
-    </html>
+</html>
+    

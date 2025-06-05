@@ -25,8 +25,13 @@
         <tr>
           <th>Posição</th>
           <th>Time</th>
-          <th>Saldo de gols</th>
-          <th>Pontos</th>
+          <th>Pts</th>
+          <th>Vitórias</th>
+          <th>Empates</th>
+          <th>Derrotas</th>
+          <th>GP</th>
+          <th>GC</th>
+          <th>Saldo</th>
         </tr>
       </thead>
       <tbody>
@@ -34,8 +39,13 @@
           <tr>
             <td><%= i + 1 %>º</td>
             <td><%= time.nome %></td>
-            <td><%= time.saldo %></td>
             <td><%= time.pontos %></td>
+            <td><%= time.vitorias %></td>
+            <td><%= time.empates %></td>
+            <td><%= time.derrotas %></td>
+            <td><%= time.golsPro %></td>
+            <td><%= time.golsContra %></td>
+            <td><%= time.saldo %></td>
           </tr>
         <% }) %>
       </tbody>

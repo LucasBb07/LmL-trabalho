@@ -46,6 +46,7 @@ import {
     filtrarpartida,
 } from '../controllers/controller.js'
 router.get('/', home)
+
 //time
 //create do modelo time (create)
 router.get('/admin/time/add', abreaddtime)
@@ -61,7 +62,7 @@ router.post('/admin/time/edt/:id',upload.single('escudo'), edttime)
 
 
 router.get('/admin/jogador/add', abreaddjogador)
-router.post('/admin/jogador/add', addjogador)
+router.post('/admin/jogador/add', upload.single('fotoJog'), addjogador)
 //rotas do modelo jogador (read)
 router.get('/admin/jogador/lst', listarjogador)
 router.post('/admin/jogador/lst', filtrarjogador)
@@ -69,7 +70,7 @@ router.post('/admin/jogador/lst', filtrarjogador)
 router.get('/admin/jogador/del/:id', deletajogador)
 //rota do modelo jogador (editar)
 router.get('/admin/jogador/edt/:id', abreedtjogador)
-router.post('/admin/jogador/edt/:id', edtjogador)
+router.post('/admin/jogador/edt/:id', upload.single('fotoJog'), edtjogador)
 
 router.get('/admin/partida/add', abreaddpartida)
 router.post('/admin/partida/add', addpartida)
