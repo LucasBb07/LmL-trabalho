@@ -1,6 +1,6 @@
 /* Configuração Geral */
 body {
-    background-color: #F4F4F9;
+    background-color: #F0F1F6; /* Tom mais suave */
     color: #2C3E50;
     font-family: 'Poppins', sans-serif;
     padding: 0;
@@ -10,7 +10,7 @@ body {
 /* Cabeçalhos */
 h1 {
     text-align: center;
-    color: #2980B9;
+    color: #1ABC9C; /* Nova cor mais vibrante */
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -18,7 +18,7 @@ h1 {
 
 /* Cabeçalho e Menu */
 header {
-    background-color: #3498DB;
+    background-color: #16A085; /* Nova cor de fundo */
     padding: 20px 0;
     text-align: center;
 }
@@ -34,7 +34,7 @@ header h1 {
 nav {
     background-color: #FFF;
     padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -48,18 +48,19 @@ nav ul {
 
 nav a {
     font-size: 1.1rem;
-    color: #3498DB;
+    color: #16A085; /* Cor mais moderna */
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s ease;
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s;
 }
 
 nav a:hover {
-    background-color: #2980B9;
+    background-color: #1ABC9C;
     color: #FFF;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
 }
 
 /* Container Principal */
@@ -95,41 +96,48 @@ nav a:hover {
     border: 1px solid #BDC3C7;
     border-radius: 5px;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    background-color: #E8F8F5; /* Cor de foco mais suave */
 }
 
 .search-bar button {
     padding: 10px 20px;
-    background-color: #3498DB;
+    background-color: #1ABC9C; /* Cor mais vibrante */
     border: none;
     border-radius: 5px;
     color: #FFF;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .search-bar button:hover {
-    background-color: #2980B9;
+    background-color: #16A085;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
 }
 
 /* Botões */
 button, .add-button a {
     display: inline-flex;
     align-items: center;
-    background-color: #3498DB;
+    background-color: #1ABC9C; /* Cor mais moderna */
     border-radius: 5px;
     padding: 12px 20px;
     color: #FFF;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 button:hover, .add-button a:hover {
-    background-color: #2980B9;
+    background-color: #16A085;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
 }
 
 /* Tabela */
@@ -140,7 +148,7 @@ table {
     border-collapse: collapse;
     background-color: #FFF;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
@@ -150,7 +158,7 @@ th, td {
 }
 
 th {
-    background-color: #3498DB;
+    background-color: #1ABC9C; /* Cor mais moderna */
     color: #FFF;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -168,13 +176,14 @@ td a {
     border-radius: 5px;
     color: #FFF;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     font-size: 14px;
 }
 
 td a:hover {
     background-color: #D35400;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(230, 126, 34, 0.4);
 }
 
 td a[href*="/del"] {
@@ -183,15 +192,17 @@ td a[href*="/del"] {
 
 td a[href*="/del"]:hover {
     background-color: #922B21;
+    box-shadow: 0 0 10px rgba(192, 57, 43, 0.4);
 }
 
 tr:nth-child(even) {
-    background-color: #F2F3F4;
+    background-color: #F9FAFB; /* Cor mais suave */
 }
 
 tr:hover {
     background-color: #ECF0F1;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 /* Imagem do escudo */
@@ -212,18 +223,19 @@ form {
     max-width: 600px;
     width: 100%;
     margin: 40px auto;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.3s ease;
 }
 
 form:hover {
     transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #3498DB;
+    color: #16A085; /* Nova cor */
 }
 
 input {
@@ -235,31 +247,32 @@ input {
     background-color: #ECF0F1;
     font-size: 16px;
     color: #34495E;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 input:focus {
     background-color: #FFF;
-    outline: 1px solid #3498DB;
+    outline: 1px solid #1ABC9C; /* Cor de destaque */
 }
 
 /* Botão de Submit */
 button {
     width: 100%;
     padding: 15px;
-    background-color: #3498DB;
+    background-color: #1ABC9C; /* Cor moderna */
     color: #FFF;
     font-weight: bold;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
-    background-color: #2980B9;
+    background-color: #16A085;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
 }
 
 /* Estilo para o Select */
@@ -279,7 +292,7 @@ select {
 
 select:focus {
     background-color: #FFF;
-    outline: 1px solid #3498DB;
+    outline: 1px solid #1ABC9C; /* Cor de destaque */
 }
 
 .select-container {
@@ -289,16 +302,5 @@ select:focus {
 
 .select-container::after {
     content: "\f078";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    color: #3498DB;
-    pointer-events: none;
-}
-
-select:hover {
-    background-color: #D5DBDB;
+    font-family: "Font Awesome 6"
 }

@@ -256,7 +256,7 @@ export async function deletapartida(req, res) {
 export async function abreedtpartida(req, res){
     const resultado = await Partida.findById(req.params.id)
     const jtimes = await Time.find({}).catch(function(err){console.log(err)})
-    res.render('admin/partida/edt',{Partida: resultado,Times:jtimes})
+    res.render('admin/partida/edt',{partida: resultado,Times:jtimes})
 }
 
 export async function edtpartida(req, res){
